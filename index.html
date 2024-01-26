@@ -7,7 +7,7 @@
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <canvas id="unity-canvas" width=828 height=1792 tabindex="-1" style="width: 828px; height: 1792px; background: #231F20"></canvas>
-    <script src="Build/SS3L.loader.js"></script>
+    <script src="Build/ShiuShiu3Lin.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -25,9 +25,9 @@
       }
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/SS3L.data",
-        frameworkUrl: "Build/SS3L.framework.js",
-        codeUrl: "Build/SS3L.wasm",
+        dataUrl: "Build/ShiuShiu3Lin.data",
+        frameworkUrl: "Build/ShiuShiu3Lin.framework.js",
+        codeUrl: "Build/ShiuShiu3Lin.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "ShiuanLab",
         productName: "ShiuShiu3Lin",
