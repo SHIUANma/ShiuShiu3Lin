@@ -55,6 +55,7 @@ function createUnityInstance(canvas, config, onProgress) {
       preserveDrawingBuffer: false,
       powerPreference: 2,
     },
+    wasmFileSize: 91085334,
     cacheControl: function (url) {
       return (url == Module.dataUrl || url.match(/\.bundle/)) ? "must-revalidate" : "no-store";
     },
@@ -300,11 +301,11 @@ function createUnityInstance(canvas, config, onProgress) {
     osVersion = versionMappings[osVersion] || osVersion;
 
     // TODO: Add mobile device identifier, e.g. SM-G960U
-
+    webgpuVersion = 0;
     canvas = document.createElement("canvas");
     if (canvas) {
-      gl = canvas.getContext("webgl2");
-      glVersion = gl ? 2 : 0;
+      var gl = canvas.getContext("webgl2");
+      var glVersion = gl ? 2 : 0;
       if (!gl) {
         if (gl = canvas && canvas.getContext("webgl")) glVersion = 1;
       }
@@ -312,6 +313,7 @@ function createUnityInstance(canvas, config, onProgress) {
       if (gl) {
         gpu = (gl.getExtension("WEBGL_debug_renderer_info") && gl.getParameter(0x9246 /*debugRendererInfo.UNMASKED_RENDERER_WEBGL*/)) || gl.getParameter(0x1F01 /*gl.RENDERER*/);
       }
+
     }
 
     var hasThreads = typeof SharedArrayBuffer !== 'undefined';
@@ -328,6 +330,7 @@ function createUnityInstance(canvas, config, onProgress) {
       gpu: gpu || 'Unknown GPU',
       language: navigator.userLanguage || navigator.language,
       hasWebGL: glVersion,
+      hasWebGPU: webgpuVersion,
       hasCursorLock: !!document.body.requestPointerLock,
       hasFullscreen: !!document.body.requestFullscreen || !!document.body.webkitRequestFullscreen, // Safari still uses the webkit prefixed version
       hasThreads: hasThreads,
