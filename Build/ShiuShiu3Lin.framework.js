@@ -1181,13 +1181,13 @@ function dbg(text) {
 // === Body ===
 
 var ASM_CONSTS = {
-  4307824: () => { return Module.webglContextAttributes.premultipliedAlpha; },  
- 4307885: () => { return Module.webglContextAttributes.preserveDrawingBuffer; },  
- 4307949: () => { return Module.webglContextAttributes.powerPreference; },  
- 4308007: () => { Module['emscripten_get_now_backup'] = performance.now; },  
- 4308062: ($0) => { performance.now = function() { return $0; }; },  
+  4307872: () => { return Module.webglContextAttributes.premultipliedAlpha; },  
+ 4307933: () => { return Module.webglContextAttributes.preserveDrawingBuffer; },  
+ 4307997: () => { return Module.webglContextAttributes.powerPreference; },  
+ 4308055: () => { Module['emscripten_get_now_backup'] = performance.now; },  
  4308110: ($0) => { performance.now = function() { return $0; }; },  
- 4308158: () => { performance.now = Module['emscripten_get_now_backup']; }
+ 4308158: ($0) => { performance.now = function() { return $0; }; },  
+ 4308206: () => { performance.now = Module['emscripten_get_now_backup']; }
 };
 
 
